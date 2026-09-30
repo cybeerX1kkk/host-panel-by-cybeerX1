@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nayupi Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<div id="petals"></div>
+<header><b class="logo">Nayupi<small>にゃゆぴ</small></b><div id="who"></div></header>
+<main>
+ <section id="login" class="hero">
+  <h1>Nayupi</h1><p>Bot dyal community dyalk. Welcome, roles, logs, moderation — kolshi mn dashboard wahed.</p>
+  <a class="btn" href="/login">Login b Discord</a>
+ </section>
+ <section id="servers" hidden><h2>Servers dyalk</h2><div id="list" class="grid"></div></section>
+ <section id="panel" hidden>
+  <button class="link" onclick="back()">‹ Servers</button>
+  <h2 id="gname"></h2>
+  <div class="stats"><div><b id="sm">0</b>Members</div><div><b id="sb">0</b>Boosts</div></div>
+  <div class="cols">
+   <form class="card" onsubmit="saveSet(event)"><h3>Welcome & Roles</h3>
+    <label>Welcome channel<select id="wc"></select></label>
+    <label>Message <small>{user} {server}</small><textarea id="wm" rows="3"></textarea></label>
+    <label>Auto role<select id="ar"></select></label>
+    <label>Logs channel<select id="lc"></select></label>
+    <button class="btn">Save</button></form>
+   <form class="card" onsubmit="announce(event)"><h3>Announcement</h3>
+    <label>Channel<select id="ac"></select></label>
+    <label>Title<input id="at" placeholder="📢 News"></label>
+    <label>Text<textarea id="ax" rows="4"></textarea></label>
+    <button class="btn">Send</button></form>
+   <form class="card" onsubmit="event.preventDefault()"><h3>Moderation</h3>
+    <label>User ID<input id="mu" placeholder="123456789012345678"></label>
+    <div class="row"><button class="btn ghost" onclick="mod('kick')">Kick</button><button class="btn danger" onclick="mod('ban')">Ban</button></div>
+    <small>Commands: /ping /kick /ban</small></form>
+  </div>
+ </section>
+</main>
+<div id="toast"></div>
+<script src="app.js"></script></body></html>
